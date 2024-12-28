@@ -23,7 +23,7 @@ function getHumanChoice() {
         if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
             return userChoice;
         } else {
-            alert("Sorry, please choose between rock, paper, or scissors." )
+            alert("Sorry, please choose between rock, paper, or scissors." ) // alert interrupts while loops
         }
     }
 }
@@ -55,11 +55,11 @@ function playGame() {
     let rounds = 0
 
     while (rounds < 5) {
-        console.log(`~~~~~ Round ${rounds + 1} ~~~~~`)
+        console.log(`~~~~~ Round ${rounds + 1} ~~~~~`) // note: tilda works like f-strings in python
         
         let humanChoice = getHumanChoice()
         let computerChoice = getComputerChoice()
-        let roundResult = playRound(humanChoice, computerChoice);
+        let roundResult = playRound(humanChoice, computerChoice); // this line must come after the declared choices
 
         if (roundResult === 1) {   // check scoring after each round
             humanScore++;

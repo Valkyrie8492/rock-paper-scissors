@@ -18,14 +18,33 @@ function getComputerChoice() {
 // create a function that asks for the human choice
 
 function getHumanChoice() {
-    while (true) {
-        let userChoice = prompt("What will you throw? (Rock, Paper, or Scissors: ").toLowerCase(); // finally an answer on how the lowercase function works w/ prompts
-        if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
-            return userChoice;
-        } else {
-            alert("Sorry, please choose between rock, paper, or scissors." ) // alert interrupts while loops
-        }
-    }
+    // while (true) {
+    //     let userChoice = prompt("What will you throw? (Rock, Paper, or Scissors: ").toLowerCase(); // finally an answer on how the lowercase function works w/ prompts
+    //     if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+    //         return userChoice;
+    //     } else {
+    //         alert("Sorry, please choose between rock, paper, or scissors." ) // alert interrupts while loops
+    //     }
+    // }
+
+    // above is for prompt-use input, commented out in favor of buttons
+    // adding event listeners to each of the new buttons rather than having players type their input
+
+    const rock = document.querySelector("#rock");
+    rock.addEventListener("click", () => {
+    return "rock"
+    });
+
+    const paper = document.querySelector("#paper");
+    paper.addEventListener("click", () => {
+        return "paper"
+    });
+
+    const scissors = document.querySelector("#scissors");
+    scissors.addEventListener("click", () => {
+        return "scissors"
+});
+
 }
 
 // assign the input of each choice from the functions to a variable
@@ -36,6 +55,7 @@ function getHumanChoice() {
 // compare the two choices to determine a round winner + redo the round if there's a tie
 // create a tracker for computer and human scores across the game
 // determine a game winner based on most rounds won across 5 rounds
+
 
 function playGame() { 
     function playRound(humanChoice, computerChoice) { // main round structure        
@@ -54,7 +74,7 @@ function playGame() {
     let computerScore = 0
     let rounds = 0
 
-    while (rounds < 5) {
+    while (humanScore < 5 && computerScore < 5) {
         console.log(`~~~~~ Round ${rounds + 1} ~~~~~`) // note: tilda works like f-strings in python
         
         let humanChoice = getHumanChoice()
@@ -86,6 +106,9 @@ function playGame() {
         return "It's a tie!"
     }
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 let outcome = playGame()
 console.log(outcome)
